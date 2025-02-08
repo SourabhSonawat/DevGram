@@ -1,9 +1,6 @@
-import http from "http";
-import app from ".";
-import dotenv from "dotenv";
+import express from "express";
+import routes from "./routes/index.js";
+const app = express();
 
-const server = http.createServer(app);
-
-const PORT = process.env.PORT || 9000;
-
-server.listen(PORT, () => console.log(`Magic happening on port: ${PORT}`));
+app.use("/api", routes);
+export default app;
